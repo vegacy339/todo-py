@@ -11,8 +11,11 @@ print('If you want to exit the program, type !quit')
 while True:
     command = input('Enter the command: ')
     if command == '!todo':
-        for i, task in enumerate(todo_list, start=1):
-            print(f'{i}. {task}')
+        if len(todo_list) == 0:
+            print('No tasks.')
+        else:
+            for i, task in enumerate(todo_list, start=1):
+                print(f'{i}. {task}')
     elif command == '!add':
         user_add_task = input('Enter a task: ')
         todo_list.append(user_add_task)
