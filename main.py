@@ -19,8 +19,11 @@ while True:
         print(f'Task "{user_add_task}" added!')
     elif command == '!delete':
         user_delete_task = int(input('Enter task number: '))
-        todo_list.pop(user_delete_task - 1)
-        print(f'Task №{user_delete_task} has been removed!')
+        if 0 < user_delete_task <= len(todo_list):
+            todo_list.pop(user_delete_task - 1)
+            print(f'Task №{user_delete_task} has been removed!')
+        else: 
+            print('Invalid task number!')
     elif command == '!quit':
         print('Goodbye, good luck!')
         sys.exit()
