@@ -20,12 +20,15 @@ def add_task():
         todo_list.append(user_add_task)
         print(f'Task "{user_add_task}" added!')
 def delete_task():
-        user_delete_task = int(input('Enter task number: '))
-        if 0 < user_delete_task <= len(todo_list):
-            todo_list.pop(user_delete_task - 1)
-            print(f'Task №{user_delete_task} has been removed!')
-        else: 
-            print('Invalid task number!')
+        try:
+             user_delete_task = int(input('Enter task number: '))
+             if 0 < user_delete_task <= len(todo_list):
+                  todo_list.pop(user_delete_task - 1)
+                  print(f'Task №{user_delete_task} has been removed!')
+             else:
+                   print('Invalid task number!')
+        except: 
+              print('Error: Please enter a valid number!')
 def quit_func():
         print('Goodbye, good luck!')
         sys.exit()
