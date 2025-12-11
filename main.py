@@ -19,15 +19,20 @@ def show_tasks():
                     print(f'{i}. {task}')
 # Add task function
 def add_task():
-        user_add_task = input('Enter a task: ')
-        todo_list.append(user_add_task)
-        print(f'Task "{user_add_task}" added!')
+        user_add_task = input('Enter a task (or cancel to cancel): ')
+        if user_add_task == 'cancel':
+              return
+        else:
+              todo_list.append(user_add_task)
+              print(f'Task "{user_add_task}" added!')
 # Delete task function
 def delete_task():
         try:
-             user_delete_task = int(input('Enter task number: '))
-             if 0 < user_delete_task <= len(todo_list):
-                  todo_list.pop(user_delete_task - 1)
+             user_delete_task = str(input('Enter task number (or cancel to cancel): '))
+             if user_delete_task == 'cancel':
+                   return
+             elif 0 < int(user_delete_task) <= len(todo_list):
+                  todo_list.pop(int(user_delete_task) - 1)
                   print(f'Task №{user_delete_task} has been removed!')
              else:
                    print('Invalid task number!')
@@ -50,7 +55,7 @@ def handle_command(command):
             quit_func()
         else:
             print('You entered an invalid command!')
-
+            
 # Showing the menu
 print_menu()
 
